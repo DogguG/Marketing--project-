@@ -1,7 +1,11 @@
 window.onload=function()
 {
     addEventChangeTab();
+<<<<<<< HEAD
     // if (window.localStorage.getItem('admin')) {
+=======
+    //if (window.localStorage.getItem('admin')) {
+>>>>>>> fc3b2a2db5da015d7f5246ad4e8eb849caec6956
         productList1();
         productList2();
         showProductList1();
@@ -9,8 +13,13 @@ window.onload=function()
         openTab('Quản Lý Sản Phẩm');
     // } else {
     //     document.body.innerHTML = `<h1 style="color:red; with:100%; text-align:center; margin: 50px;"> Truy cập bị từ chối.. </h1>`;
+<<<<<<< HEAD
     // }
 }
+=======
+     }
+//}
+>>>>>>> fc3b2a2db5da015d7f5246ad4e8eb849caec6956
 
 function logOutAdmin() {
     window.localStorage.removeItem('admin');
