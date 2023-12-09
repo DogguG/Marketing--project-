@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="SanPham.css">
+
+    <title>Document</title>
+</head>
+<body class="">
+    <div id="header">
+        <a href class="logo" width="50px">
+            <img src="assets/logo.png" alt>
+        </a>
+
+        <input type="checkbox" id="check">
+        <label for="check" class="List">
+            <i id="close-icon" class="fa-solid fa-xmark"></i>
+            <i id="menu-icon" class="fa-solid fa-bars"></i>
+        </label>
+
+        <div id="menu">
+            <div class="item">
+                <a href>Trang chủ</a>
+            </div>
+            <div class="item">
+                <a href>Sản phẩm</a>
+            </div>
+            <div class="item">
+                <a href>Blog</a>
+            </div>
+            <div class="item">
+                <a href>Liên hệ</a>
+            </div>
+        </div>
+        <div id="actions">
+            <div class="item">
+                <i title="Tai Khoan" class="fa-regular fa-circle-user"></i>
+            </div>
+            <div class="item">
+                <div class="icon-cart">
+                    <i title="Gio Hang" class="fa-solid fa-cart-shopping"></i>
+                    <span>0</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="SanPham">
+        <div class="content-left">
+
+        </div>
+
+        <div class="content-right">
+            
+        </div>
+
+        <div class="cartTab">
+            <h1>Gio Hang</h1>
+            <div class="listCart">
+                <div class="product">
+                    <div class="image">
+                        <img src="assets/10009.jpg" alt="">
+                    </div>
+                    <div class="name">
+                        NAME
+                    </div>
+                    <div class="totalPrice">
+                        200.000
+                    </div>
+                    <div class="quantity">
+                        <span class="minus"><</span>
+                        <span>1</span>
+                        <span class="plus">></span>
+                    </div>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="close">CLOSE</button>
+                <button class="checkOut">CHECK OUT</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

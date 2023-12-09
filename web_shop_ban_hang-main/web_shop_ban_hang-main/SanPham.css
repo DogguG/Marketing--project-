@@ -1,0 +1,142 @@
+.SanPham{
+    background-color: blueviolet;
+    height: 1000px;
+    width: 96%;
+    margin: 120px auto;
+    position: relative;
+    display: flex;
+    transition: transform .5s;
+}
+
+/* .SanPham > div{
+    margin: 20px;
+} */
+.content-left{
+    position: absolute;
+    /* inset: 15px; */
+    /* margin: 20px; */
+    width: 20%;
+    height: 400px;
+    background-color: aqua;
+}
+
+.content-right{
+    position: absolute;
+    right: 0;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 20px;
+    width: 76%;
+    min-height: 290px;
+    background-color: red;
+}
+
+.content-right .product{
+    text-align: center;
+    background-color: #eeeee6;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.content-right .product img{
+    width: 90%;
+}
+
+.content-right .product h2{
+    font-weight: 500;
+    font-size: larger;
+}
+
+.content-right .product .price{
+    letter-spacing: 2px;
+}
+
+.content-right .product button{
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.cartTab{
+    width: 500px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    inset: 100px -500px 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s ;
+}
+
+body.showCart .cartTab{
+    inset: 100px 0px 0 auto;
+}
+
+/* body.showCart .SanPham{
+    transform: translateX(-440px);
+} */
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.cartTab .btn button{
+    background-color: yellow;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cartTab .btn .close{
+    background-color: #fff;
+}
+
+.cartTab .listCart .product{
+    display: grid;
+    grid-template-columns: 70px 180px 110px 90px;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.cartTab .listCart .product img{
+    width: 100%;
+}
+
+.cartTab .quantity span{
+    display: inline-block;
+    width: 25px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cartTab .quantity span:nth-child(2){
+    background-color: transparent;
+    color: #fff;
+}
+
+.cartTab .product:nth-child(even){
+    background-color: #eee1;
+}
+
+.listCart{
+    overflow: auto;
+}
+
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
