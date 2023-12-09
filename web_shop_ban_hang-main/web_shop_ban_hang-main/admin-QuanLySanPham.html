@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="admin-QLSP.css">
+        <link rel="stylesheet" href="admin-dungchung.css">
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <title>Admin - Bán Bánh Trung Thu</title>
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="Menu">
+                <ul>
+                    <div class="Logo">
+                        <img src="hinhanh/LOGO.png" width="200px">
+                    </div>
+                    <li><a class="nav-link active"><i class="fa fa-tags"></i> Quản Lý Sản Phẩm</a></li>
+                    <li><a class="nav-link"><i class="fa fa-file-text-o"></i> Quản Lý Đơn Hàng</a></li>
+                    <li><a class="nav-link"><i class="fa fa-bar-chart"></i> Thống Kê Kinh Doanh</a></li>
+                    <li><a class="nav-link"><i class="fa fa-address-book-o"></i> Quản Lý Người Dùng</a></li>
+                    <a href="admin-QuanLyDonHang.html" onclick="logOutAdmin(); return true;"><button class="logout">Đăng Xuất <i class="fa fa-sign-out"></i></button></a> 
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container">
+
+            <div class="SanPham">
+
+                <div class="sidebar">
+
+                    <div class="loc">
+
+                        <h3>Thanh Tìm Kiếm:</h3>
+                        <div class="imput">
+
+                            <select name="kieuTimSanPham">
+                                <option value="id">Tìm Theo ID</option>
+                                <option value="ten">Tìm Theo Tên</option>
+                            </select>
+
+                            <div class="imput-box">
+                                <input type="text" class="myInput" placeholder="Tìm bất cứ thứ gì...." onkeyup="filterTable1()">
+                                <label><i class="fa fa-search"></i></label>
+                            </div>
+
+                        </div>
+
+                        <h3>Thêm Sản Phẩm:</h3>
+                        <div class="button">
+                            <button onclick="openForm()"><i class="fa fa-edit"></i> Thêm</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="content">
+
+                    <table class="table-header">
+                        <tr>
+                            <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable1('stt')">STT <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable1('idsp')">ID <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 30%" onclick="sortProductsTable1('tensp')">Tên Sản Phẩm <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable1('giasp')">Giá <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 16%" onclick="sortProductsTable1('thoigian')">Thời Gian Chỉnh Sửa <i class="fa fa-sort"></i></th>
+                            <th style="width: 14%">Hình Ảnh</th>
+                            <th>Chỉnh Sửa</th>
+                        </tr>
+
+                    </table>
+
+                    <table class="product"></table>
+
+                </div>
+
+                <div id="overlay"></div>
+
+                <div id="wrapper">
+                    <span class="icon-close" onclick="closeForm()"><i class="fa fa-times"></i></span>
+                    <h1>Chỉnh Sửa Sản Phẩm</h1>
+                    <form action="#" id="Form" onsubmit="event.preventDefault(); createProduct1();">
+                        
+                        <div class="input-box">
+                            <input type="text" required id="idsp">
+                            <label>ID: </label>
+                        </div>
+
+                        <div class="input-box">
+                            <input type="text" required id="tensp">
+                            <label>Tên Sản Phẩm: </label>
+                        </div>
+
+                        <div class="input-box">
+                            <input type="text" required id="giasp">
+                            <label>Giá: </label>
+                        </div>
+
+                        <div class="input-box">
+                            <textarea style="min-width: 100%; max-width: 100%; min-height: 150px; max-height: 270px;" name=”TextAreaName ” rows=”4” cols=”n2” wrap=”physical” required id="noidungsp"></textarea>
+                            <label>Nội Dung: </label>
+                        </div>
+
+                        <span style="margin-left: 11px;"><b>Hình Ảnh:</b></span>
+                        <div class="input-box">
+                            <img class="hinhDaiDien" id="anhDaiDienSanPham" src="">
+                            <input type="file" accept="image/*" id="hinhsp" onchange="capNhatAnhSanPham(this.files)">
+                        </div>
+
+                        <input type="submit" value="Luu" id="submit">
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="DonHang">
+                <div class="sidebar">
+
+                    <div class="loc">
+            
+                        <h3>Thanh Tìm Kiếm:</h3>
+                        <div class="imput">
+                            <select name="kieuTimSanPham">
+                                <option value="madon">Tìm Theo Mã Đơn</option>
+                                <option value="khach">Tìm Theo Tên Khách Hàng</option>
+                                <option value="sanpham">Tìm Theo Trạng Thái</option>
+                            </select>
+
+                            <div class="imput-box">
+                                <input type="text" class="myInput" placeholder="Tìm bất cứ thứ gì...." onkeyup="filterTable2()">
+                                <label><i class="fa fa-search"></i></label>
+                            </div>
+
+                        </div>
+            
+                        <div class="timTheoNgay">
+                            <label>Từ ngày: </label>
+                            <input type="date" id="fromDate">
+                            <br>
+                            <label>Đến ngày: </label>
+                            <input type="date" id="toDate">
+                            <br>
+                            <button onclick="locDonHangTheoKhoangNgay()">Áp Dụng</button>
+                        </div>
+            
+                    </div>
+            
+                </div>
+                
+                <div class="content">
+                    
+                    <table class="table-header">
+                        <tr>
+                            <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable2('stt')">STT <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('madon')">Mã Đơn <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('khach')">Khách <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable2('sanpham')">Sản Phẩm <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('tongtien')">Tổng Tiền <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 15%" onclick="sortProductsTable2('ngaygio')">Ngày Giờ <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('trangthai')">Trạng Thái <i class="fa fa-sort"></i></th>
+                            <th>Hành Động</th>
+                        </tr>
+                    </table>
+            
+                    <table class="product"></table>
+            
+                </div>
+
+            </div>
+
+            <div class="KinhDoanh">
+                <div class="sidebar">
+
+                    <div class="loc">
+            
+                        <h3>Thanh Tìm Kiếm:</h3>
+                        <div class="imput">
+                            <select name="kieuTimSanPham">
+                
+                                <option value="don">Tìm Theo Mã Đơn</option>
+                                
+                                <option value="ten">Tìm Theo Tên Khách Hàng</option>
+                
+                                <option value="tt">Tìm Theo Trạng Thái</option>
+                            
+                            </select>
+                            <div class="imput-box">
+                                <input type="text" class="myInput" placeholder="Tìm bất cứ thứ gì...." onkeyup="filterTable3()">
+                                <label><i class="fa fa-search"></i></label>
+                            </div>
+                        </div>
+            
+                            <div class="theloai">
+                                
+                                <label>Từ ngày: </label>
+                                <input type="date">
+                                <br>
+                                <label>Đến ngày: </label>
+                                <input type="date">
+                                <br>
+                                <button>Lọc <i class="fa fa-eye"></i></button>
+                                
+                            </div>
+            
+                        </form>
+            
+                    </div>
+            
+                </div>
+                
+                <div class="content">
+                    
+                    
+                    <table class="table-header">
+                        <tr>
+                            <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable('stt')">STT <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable('idsp')">Mã Đơn <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable('tensp')">Khách <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable('giasp')">Sản Phẩm <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 16%" onclick="sortProductsTable('giasp')">Tổng Tiền <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable('giasp')">Ngày Giờ <i class="fa fa-sort"></i></th>
+                            <th style="width: 12%" >Trạng Thái</th>
+                            <th>Hành Động</th>
+                        </tr>
+                        
+                    </table>
+            
+                    <table class="product"></table>
+            
+                </div>
+            </div>
+
+            <div class="NguoiDung">
+                <div class="sidebar">
+
+                    <div class="loc">
+            
+                        <h3>Thanh Tìm Kiếm:</h3>
+                        <div class="imput">
+                            <select name="kieuTimSanPham">
+                
+                                <option value="ten">Tìm Theo Họ Tên</option>
+                            
+                                <option value="email">Tìm Theo Email</option>
+                                
+                                <option value="tk">Tìm Theo Tài Khoản</option>
+                            
+                            </select>
+
+                            <div class="imput-box">
+                                <input type="text" class="myInput" placeholder="Tìm bất cứ thứ gì...." onkeyup="filterTable4()">
+                                <label><i class="fa fa-search"></i></label>
+                            </div>
+
+                        </div>
+            
+                    </div>
+            
+                </div>
+            
+                <div class="content">
+                        
+                    <table class="table-header">
+                        <tr>
+                            <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable4('stt')">STT <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('hoten')">Họ Tên <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('email')">Email <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('tk')">Tài Khoản <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('mk')">Mật Khẩu <i class="fa fa-sort"></i></th>
+                            <th>Hành Động</th>
+                        </tr>
+                        
+                    </table>
+                
+                    <table class="product"></table>
+                
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="admin-QLSP.js"></script>
+        <script src="product.js"></script>
+    </body>
+
+</html>
