@@ -1,3 +1,4 @@
+
 .SanPham{
     background-color: blueviolet;
     height: 1000px;
@@ -23,43 +24,56 @@
 .content-right{
     position: absolute;
     right: 0;
+    
+    width: 76%;
+    min-height: 390px;
+    background-color: rgb(4, 146, 240);
+}
+
+.main{
+    position: relative;
+    /* inset: 20px; */
+    margin: 20px;
+    min-height: 500px;
     display: grid;
     padding: 20px;
     grid-template-columns: repeat(4 , 1fr);
     gap: 20px;
-    width: 76%;
-    min-height: 290px;
-    background-color: red;
+    background-color:chocolate;
 }
-
-.content-right .product{
+.main .product{
     text-align: center;
     background-color: #eeeee6;
     padding: 10px;
     border-radius: 20px;
+    height: 420px;
+    position: relative;
 }
 
-.content-right .product img{
+.main .product img{
     width: 90%;
 }
 
-.content-right .product h2{
+.main .product h2{
     font-weight: 500;
     font-size: larger;
 }
 
-.content-right .product .price{
+.main .product .price{
     letter-spacing: 2px;
 }
 
-.content-right .product button{
+.main .product button{
     background-color: #333;
     color: #fff;
     padding: 8px;
+    /* width: 94%; */
     margin-top: 10px;
     border-radius: 12px;
     border: none;
     cursor: pointer;
+    position: absolute;
+    inset: auto 10px 10px 10px;
 }
 
 .cartTab{
@@ -99,7 +113,7 @@ body.showCart .cartTab{
 }
 
 .cartTab .btn .close{
-    background-color: #fff;
+    background-color: #f8643f;
 }
 
 .cartTab .listCart .product{
@@ -139,4 +153,25 @@ body.showCart .cartTab{
 
 .listCart::-webkit-scrollbar{
     width: 0;
+}
+
+.listPage{
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+    position: relative;
+}
+
+.listPage li{
+    background-color: #fff;
+    color: #333;
+    padding: 12px 20px;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.listPage .active{
+    background-color: #333;
+    color: #fff;
 }

@@ -30,7 +30,25 @@
     width: 200px;
     /* aspect-ratio: 1; */
 }
+.icon-cart {
+    position: relative;
+}
 
+.icon-cart span{
+    position: absolute;
+    display: grid;
+    right: -20px;
+    bottom: -20px;
+    background-color: red;
+    height: 30px;
+    justify-content: center;
+    align-content: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 100;
+    font-size: medium;
+}
 #menu {
     list-style: none;
     display: flex;
