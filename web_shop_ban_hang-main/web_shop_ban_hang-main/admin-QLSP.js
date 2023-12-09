@@ -1,16 +1,16 @@
 window.onload=function()
 {
     addEventChangeTab();
-    if (window.localStorage.getItem('admin')) {
+    //if (window.localStorage.getItem('admin')) {
         productList1();
         productList2();
         showProductList1();
         showProductList2();
         openTab('Quản Lý Sản Phẩm');
-    } else {
-        document.body.innerHTML = `<h1 style="color:red; with:100%; text-align:center; margin: 50px;"> Truy cập bị từ chối.. </h1>`;
-    }
-}
+    // } else {
+    //     document.body.innerHTML = `<h1 style="color:red; with:100%; text-align:center; margin: 50px;"> Truy cập bị từ chối.. </h1>`;
+     }
+//}
 
 function logOutAdmin() {
     window.localStorage.removeItem('admin');
