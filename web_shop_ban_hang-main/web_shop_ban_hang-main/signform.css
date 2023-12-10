@@ -33,6 +33,7 @@ body{
     transform: translateX(100%);
     transition: 1s ease-in-out;
 }
+
 .signin-signup {
     position: absolute;
     top: 0;
@@ -54,6 +55,7 @@ body{
     min-width: 238px;
     padding: 0 10px;
 }
+
 form.sign-in-form {
     opacity: 1;
     transition: 0.5 ease-in-out;
@@ -88,7 +90,23 @@ form.sign-up-form {
     text-align: center;
     color:#666;
     font-size: 18px;
+    cursor: pointer;
 }
+.input-field .fa-eye-slash {
+    display: none;
+}
+/* Add these styles to make the password input look more interactive */
+.input-field input {
+    padding-right: 30px; /* Space for the icon */
+}
+/* Style for the eye and eye-slash icons when the password is visible */
+.input-field.password-visible i.fa-eye {
+    display: none;
+}
+.input-field.password-visible i.fa-eye-slash {
+    display: block;
+}
+
 .input-field input{
     flex: 5;
     background: none;
@@ -259,3 +277,4 @@ form.sign-up-form {
         width: 90%;
     }
 }
+
