@@ -356,7 +356,7 @@
     margin-bottom: 50px;
 }
 
-#comment h2 {
+#comment h1 {
     text-align: center;
     margin-bottom: 50px;
     font-size: 32px;
@@ -465,4 +465,18 @@
     height: 38px;
     margin-top: 29px;
     color: #fff;
+}
+
+.text p {
+    margin: 20px 150px 20px;
+    margin-top: 5%;
+    font-style: italic;
+    font-size: large;
+}
+
+.img img {
+    align-items: right;
+    margin-top: 3%;
+    position: relative;
+    left: 300px;
 }
