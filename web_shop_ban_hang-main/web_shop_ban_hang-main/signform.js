@@ -67,3 +67,116 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+
+//     // Function to show SweetAlert error message
+//     function showError(message) {
+//         Swal.fire({
+//             icon: 'error',
+//             title: 'Oops...',
+//             text: message,
+//         });
+//     }
+
+//     // Function to show SweetAlert success message
+//     function showSuccess(message) {
+//         Swal.fire({
+//             icon: 'success',
+//             title: 'Success!',
+//             text: message,
+//         });
+//     }
+
+//     // Function to validate signup form data
+//     function validateSignupData(username, email, password, confirmPassword) {
+//         if (!username || !email || !password || !confirmPassword) {
+//             showError('Please fill in all fields');
+//             return false;
+//         }
+
+//         if (password !== confirmPassword) {
+//             showError('Passwords do not match');
+//             return false;
+//         }
+
+//         // Add additional validation if needed
+
+//         return true;
+//     }
+
+//     // Function to handle signup form submission
+//     function handleSignup() {
+//         const username = document.querySelector('.sign-up-form .input-field:nth-child(1) input').value;
+//         const email = document.querySelector('.sign-up-form .input-field:nth-child(2) input').value;
+//         const password = document.querySelector('.sign-up-form .input-field:nth-child(3) input').value;
+//         const confirmPassword = document.querySelector('.sign-up-form .input-field:nth-child(4) input').value;
+
+//         if (validateSignupData(username, email, password, confirmPassword)) {
+//             // Save user data to local storage
+//             const userData = { username, email, password };
+//             localStorage.setItem('userData', JSON.stringify(userData));
+
+//             // Show success message
+//             showSuccess('Signup successful!');
+
+//             // Clear the form
+//             document.querySelector('.sign-up-form').reset();
+//         }
+//     }
+
+//     // Function to validate login form data
+//     function validateLoginData(username, password) {
+//         if (!username || !password) {
+//             showError('Please fill in all fields');
+//             return false;
+//         }
+
+//         // Add additional validation if needed
+
+//         return true;
+//     }
+
+//     // Function to handle login form submission
+//     function handleLogin() {
+//         const username = document.querySelector('.sign-in-form .input-field:nth-child(1) input').value;
+//         const password = document.querySelector('.sign-in-form .input-field:nth-child(2) input').value;
+
+//         if (validateLoginData(username, password)) {
+//             // Retrieve user data from local storage
+//             const storedUserData = localStorage.getItem('userData');
+
+//             if (storedUserData) {
+//                 const userData = JSON.parse(storedUserData);
+
+//                 // Check if the entered username and password match the stored data
+//                 if (username === userData.username && password === userData.password) {
+//                     // Show success message
+//                     showSuccess('Login successful!');
+
+//                     // Clear the form
+//                     document.querySelector('.sign-in-form').reset();
+//                 } else {
+//                     // Show error message
+//                     showError('Invalid username or password');
+//                 }
+//             } else {
+//                 // Show error message
+//                 showError('User does not exist');
+//             }
+//         }
+//     }
+
+//     // Event listeners for signup and login form submissions
+//     document.querySelector('.sign-up-form').addEventListener('submit', function (e) {
+//         e.preventDefault();
+//         handleSignup();
+//     });
+
+//     document.querySelector('.sign-in-form').addEventListener('submit', function (e) {
+//         e.preventDefault();
+//         handleLogin();
+//     });
+
+// });
