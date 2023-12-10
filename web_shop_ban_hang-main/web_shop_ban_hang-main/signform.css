@@ -16,7 +16,7 @@ body{
     width: 70vw;
     height: 80vh;
     left: 15%;
-    background: white;
+    background: #fff;
     border-radius: 15px;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -28,12 +28,12 @@ body{
     left: -50%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-45deg,#df4adf,#525252);
+    background: linear-gradient(-45deg, #df4adf, #525252);
     z-index: 6;
     transform: translateX(100%);
     transition: 1s ease-in-out;
 }
-.signin-signup{
+.signin-signup {
     position: absolute;
     top: 0;
     left: 0;
@@ -45,7 +45,7 @@ body{
     z-index: 5;
 
 }
-.form{
+.form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +54,19 @@ body{
     min-width: 238px;
     padding: 0 10px;
 }
-.title{
+form.sign-in-form {
+    opacity: 1;
+    transition: 0.5 ease-in-out;
+    transition-delay: 1s;
+}
+
+form.sign-up-form {
+    opacity: 0;
+    transition: 0.5 ease-in-out;
+    transition-delay: 1s;
+}
+
+.title {
     font-size: 35px;
     color:#df4adf;
     margin-bottom: 10px;
@@ -75,7 +87,7 @@ body{
     flex: 1;
     text-align: center;
     color:#666;
-    font-size: 1;
+    font-size: 18px;
 }
 .input-field input{
     flex: 5;
@@ -140,13 +152,14 @@ body{
     justify-content: space-around;
 }
 .panel{
-    z-index: 6;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     width: 35%;
-    min-width: none;
+    min-width: 238px;
     padding: 0 10px;
+    text-align: center;
     z-index: 6;
 }
 .content{
@@ -171,29 +184,30 @@ body{
     transition: 1.1s ease-in-out;
     transition-delay: 0.4s;
 }
-
-
-.container.sign-up-mode::before{
-    transform: translateX(0);
-}
-.container.sign-up-mode .left-panel.image,
-.container.sign-up-mode .left-panel.content{
+.left-panel .image,
+.left-panel .content {
     transform: translateX(-200%);
 }
-.container.sign-up-mode .right-panel.image,
-.container.sign-up-mode .right-panel.content{
+.right-panel .image,
+.right-panel.content {
     transform: translateX(0);
 }
-form.sign-in-form{
-    opacity: 1;
-    transition: 0.5 ease-in-out;
-    transition-delay: 1s;
+.account-text{
+    display: none;
 }
-form.sign-in-form{
-    opacity: 0;
-    transition: 0.5 ease-in-out;
-    transition-delay: 1s;
+/* Animation */
+.container.sign-up-mode::before {
+    transform: translateX(0);
 }
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content{
+    transform: translateX(200%);
+}
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content{
+    transform: translateX(0);
+}
+
 .container.container.sign-up-mode form.sign-in-form{
     opacity: 0;
 }
@@ -205,4 +219,43 @@ form.sign-in-form{
 }
 .container.sign-up-mode .left-panel{
     pointer-events: all;
+}
+
+/* responsive  */
+@media(max-width: 779px){
+    .container{
+        width: 100vw;
+        height:100vh;
+    }
+}
+@media(max-width: 635px){
+    .container::before{
+   
+        display: none;
+    }
+    .form{
+        width: 80%;
+    }
+    .form.sign-up-form{
+        display: none;
+    }
+    .container.sign-up-mode2 form.sign-up-form{
+        display: flex;
+        opacity: 1;
+    }
+    .container.sign-up-mode2 form.sign-in-form{
+        display: none;
+    }
+    .panels-container{
+        display: none;
+    }
+    .account-text{
+        display: initial;
+        margin-top: 30px;
+    }
+}
+@media(max-width: 320px){
+    .form{
+        width: 90%;
+    }
 }
