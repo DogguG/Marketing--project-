@@ -26,3 +26,14 @@ prev.addEventListener('click', function (event) {
   comment.style.transform = `translateY(${translateY}px)`
   count++
 })
+
+document.querySelector(".item .fa-sign-out"). onclick = function() {
+  swal({
+      title: "Good job!",
+      text: "Bạn đã đăng xuất!",
+      icon: "success",
+  }).then(function() {
+    
+      window.location.href = "signup.html";
+  });
+}
