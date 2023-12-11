@@ -479,7 +479,7 @@
 }
 
 .text {
-    background-color: #fff; /* Màu nền cho phần văn bản */
+    background-color: #362f2f; /* Màu nền cho phần văn bản */
     padding: 20px; /* Khoảng cách giữa nội dung và viền */
     border-radius: 5px; /* Góc bo tròn cho khối văn bản */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khối văn bản */
@@ -487,9 +487,18 @@
 }
 
 .text p {
-    font-size: 16px;
+    font-size: 20px;
+    text-align: center;
     line-height: 1.6;
-    color: #333; /* Màu chữ đen */
+    color: white; 
+}
+
+.text-2 p {
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    color: rgb(11, 10, 10); 
 }
 
 .img {
