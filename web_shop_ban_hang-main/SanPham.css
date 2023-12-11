@@ -1,6 +1,6 @@
 
 .SanPham{
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     min-height: 1010px;
     width: 96%;
     margin: 120px auto 0;
@@ -21,7 +21,7 @@
     /* margin: 20px; */
     min-width: 350px;
     height: 500px;
-    background-color: aqua;
+    background-color: #fff;
     border: 10px solid #333;
     border-radius: 20px;
     padding: 20px;
