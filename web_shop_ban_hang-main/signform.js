@@ -104,10 +104,47 @@ function trangchu(){
             return false;
         }
 
-        // Add additional validation if needed
+        if(email.includes('@gmail.com') === false) {
+            showError('Email address is not a valid email address');
+            return false;
+        }
 
+        // Add additional validation if needed
+        if(checkAccount(username,password)){
+            showError('Account have existed already');
+            return false;
+        }
+
+        if (username === adminInfo.username && password === adminInfo.pass){
+            showError('Account have existed already');
+            return false;
+        }
         return true;
     }
+
+    function checkAccount(username,password){
+        var list = getUserData();
+        for(item of list){
+            if (username === item.username && password === item.password){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    var adminInfo = {
+        "username": "admin",
+        "pass": "123"
+    };
+    // adminInfo = getListAdmin() || adminInfo;
+    // adminInfo = getListAdmin();
+    function getListAdmin() {
+        return JSON.parse(window.localStorage.getItem('ListAdmin'));
+    }
+    
+    // function setListAdmin(l) {
+    //     window.localStorage.setItem('ListAdmin', JSON.stringify(l));
+    // }
 
 function getUserData() {
     var data = JSON.parse(window.localStorage.getItem('userData')) || []
@@ -122,12 +159,12 @@ function setUserData(l) {
     window.localStorage.setItem('userData', JSON.stringify(l));
 }
 
-function User(user, pass, email) {
-	this.email = email || '';
+// function User(user, pass, email) {
+// 	this.email = email || '';
 
-	this.user = user;
-	this.pass = pass;
-}
+// 	this.user = user;
+// 	this.pass = pass;
+// }
 let userData = [];
     // Function to handle signup form submission
     function handleSignup(form_new) {
@@ -181,8 +218,19 @@ let userData = [];
         if (validateLoginData(username, password)) {
             // Retrieve user data from local storage
             const storedUserData = getUserData();
+            // const adminInfo = getListAdmin();
+            console.log(adminInfo);
 
             if (storedUserData) {
+                // for(ad of adminInfo){
+                    if (username === adminInfo.username && password === adminInfo.pass){
+                        alert('Xin chào admin .. ');
+                        window.localStorage.setItem('admin', true);
+                        window.location.assign('admin-QuanLySanPham.html');
+                        return false;
+                    }
+                // }
+
                 // Check if the entered username and password match the stored data
                 for(item of storedUserData){
                     if (username === item.username && password === item.password) {
@@ -191,10 +239,10 @@ let userData = [];
                     trangchu();
                     // Clear the form
                     document.querySelector('.sign-in-form').reset();
-                } else {
-                    // Show error message
-                    showError('Invalid username or password');
-                }
+                    } else {
+                        // Show error message
+                        showError('Invalid username or password');
+                    }
                 }
                 
             } else {

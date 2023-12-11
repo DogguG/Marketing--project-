@@ -279,7 +279,7 @@ table{
     display: block;
     width: 120%;
 } */
-table, td {
+table, td, th {
     border: 1px solid var(--mycolor1);
 }
 
@@ -494,8 +494,8 @@ input[type="submit"]:hover {
 /*--------------------thanh keo ben phai----------------*/
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 0px;
+    /* height: 5px; */
 }
 
 ::-webkit-scrollbar-track {

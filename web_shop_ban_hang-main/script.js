@@ -30,8 +30,6 @@
 //=================================San Pham===============================
 window.onload=function () {
   iniApp();
-  // var listDH = JSON.parse(localStorage.getItem('cart'));
-  // console.log(listDH);
 }
 const iconCart = document.querySelector(".icon-cart");
 const body = document.querySelector("body");
@@ -39,6 +37,9 @@ const closeCart = document.querySelector(".close");
 let carts = [];
 let listCartHTML = document.querySelector(".listCart");
 const iconCartSpan = document.querySelector(".icon-cart span");
+
+const checkOut = document.querySelector(".checkOut");
+
 let listProducts = [];
 iconCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
@@ -48,6 +49,13 @@ closeCart.addEventListener("click", () => {
   body.classList.remove("showCart");
 });
 
+checkOut.addEventListener("click", () => {
+  alert("Bạn có muốn thanh toán?");
+  listCartHTML.innerHTML = "";
+  iconCartSpan.innerHTML = "0";
+  body.classList.remove("showCart");
+  // listCartHTML.style.display = "none";
+})
 // function addDataToHTML() {
 //   listProductsHTML.innerHTML = "";
 //   if (listProducts.length > 0) {
@@ -130,7 +138,7 @@ function addDataToHTML() {
         <img src="${product.hinhsp}" alt="">
         <h2>${product.tensp}</h2>
         <div class="price">${product.giasp} Vnd</div>
-        <button class="addCart">Them vao</button>
+        <button class="addCart">Thêm <i class="fa-solid fa-plus"></i></button>
       `;
       listProductsHTML.appendChild(newProduct);
     });
@@ -360,3 +368,4 @@ function filterTable1() {
   loadItems(list);
   // console.log(list.length);
 }
+

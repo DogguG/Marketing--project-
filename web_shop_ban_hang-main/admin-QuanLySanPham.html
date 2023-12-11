@@ -131,9 +131,9 @@
                         <h3>Thanh Tìm Kiếm:</h3>
                         <div class="imput">
                             <select name="kieuTimSanPham">
-                                <option value="madon">Tìm Theo Mã Đơn</option>
+                                <option value="madon">Tìm Theo ID</option>
                                 <option value="khach">Tìm Theo Tên Khách Hàng</option>
-                                <option value="sanpham">Tìm Theo Trạng Thái</option>
+                                <option value="sanpham">Tìm Theo Tên Sản Phẩm</option>
                             </select>
 
                             <div class="imput-box">
@@ -162,8 +162,8 @@
                     <table class="table-header">
                         <tr>
                             <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable2('stt')">STT <i class="fa fa-sort"></i></th>
-                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('madon')">Mã Đơn <i class="fa fa-sort"></i></th>
-                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('khach')">Khách <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('madon')">ID <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('quantity')">Số Lượng <i class="fa fa-sort"></i></th>
                             <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable2('sanpham')">Sản Phẩm <i class="fa fa-sort"></i></th>
                             <th title="Sắp xếp" style="width: 12%" onclick="sortProductsTable2('tongtien')">Tổng Tiền <i class="fa fa-sort"></i></th>
                             <th title="Sắp xếp" style="width: 15%" onclick="sortProductsTable2('ngaygio')">Ngày Giờ <i class="fa fa-sort"></i></th>
@@ -249,8 +249,6 @@
                         <div class="imput">
                             <select name="kieuTimSanPham">
                 
-                                <option value="ten">Tìm Theo Họ Tên</option>
-                            
                                 <option value="email">Tìm Theo Email</option>
                                 
                                 <option value="tk">Tìm Theo Tài Khoản</option>
@@ -273,9 +271,8 @@
                     <table class="table-header">
                         <tr>
                             <th title="Sắp xếp" style="width: 8%" onclick="sortProductsTable4('stt')">STT <i class="fa fa-sort"></i></th>
-                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('hoten')">Họ Tên <i class="fa fa-sort"></i></th>
-                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('email')">Email <i class="fa fa-sort"></i></th>
-                            <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('tk')">Tài Khoản <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 38%" onclick="sortProductsTable4('email')">Email <i class="fa fa-sort"></i></th>
+                            <th title="Sắp xếp" style="width: 25%" onclick="sortProductsTable4('tk')">Tài Khoản <i class="fa fa-sort"></i></th>
                             <th title="Sắp xếp" style="width: 20%" onclick="sortProductsTable4('mk')">Mật Khẩu <i class="fa fa-sort"></i></th>
                             <th>Hành Động</th>
                         </tr>

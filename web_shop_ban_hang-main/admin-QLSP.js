@@ -3,9 +3,11 @@ window.onload=function()
     addEventChangeTab();
     //if (window.localStorage.getItem('admin')) {
         productList1();
-        productList2();
+        // localStorage.clear();
+        // productList2();
         showProductList1();
         showProductList2();
+        addTableKhachHang()
         openTab('Quản Lý Sản Phẩm');
     // } else {
     //     document.body.innerHTML = `<h1 style="color:red; with:100%; text-align:center; margin: 50px;"> Truy cập bị từ chối.. </h1>`;
@@ -68,7 +70,7 @@ function showProductList1() {
                 <td style="width: 30%">` + productArray[i].tensp + `</td>
                 <td style="width: 12%">` + productArray[i].giasp + ` Vnd</td>
                 <td style="width: 16%">` + productArray[i].thoigian + `</td>
-                <td style="width: 14%"><img src="` + productArray[i].hinhsp + `" width="180px" ></td>
+                <td style="width: 14%"><img src="` + productArray[i].hinhsp + `" width="170px" ></td>
                 <td>
                     <div class="tooltip">
                         <button class="edit" onClick="editProduct1(`+i+`)"><i class="fa fa-wrench"></i></button>
@@ -245,21 +247,25 @@ function filterTable1() {
 
 
 // ================================Quản Lý Đơn Hàng============================
+function getListCart() {
+    return JSON.parse(window.localStorage.getItem('cart'));
+}
 var listDH = [];
 function showProductList2() {
     TONGTIEN = 0;
-    // listDH = JSON.parse(localStorage.getItem('cart'));
-    // console.log(listDH);
+    listDH = getListCart();
+
+    var d = new Date();
     var tr = '';
     for(var i = 0; i < listDH.length; i++) {
         tr += `<tr>
                 <td style="width: 8%">` + (i+1) + `</td>
-                <td style="width: 12%">` + listDH[i].madon + `</td>
-                <td style="width: 12%">` + listDH[i].khach + `</td>
-                <td style="width: 20%">` + listDH[i].sanpham + `</td>
-                <td style="width: 12%">` + listDH[i].tongtien + `</td>
-                <td style="width: 15%">` + listDH[i].ngaygio + `</td>
-                <td style="width: 12%">` + listDH[i].trangthai + `</td>
+                <td style="width: 12%">` + listDH[i].product_id + `</td>
+                <td style="width: 12%">` + listDH[i].quantity + `</td>
+                <td style="width: 20%">` + listDH[i].product_ten + `</td>
+                <td style="width: 12%">` + formatNumber(listDH[i].product_gia * listDH[i].quantity) + `</td>
+                <td style="width: 15%">` + d.toLocaleString() + `</td>
+                <td style="width: 12%">` + d + `</td>
                 <td>
                     <div class="tooltip">
                         <button class="edit" onClick="editProduct2(`+i+`)"><i class="fa fa-check"></i></button>
@@ -276,35 +282,55 @@ function showProductList2() {
     document.getElementsByClassName('DonHang')[0].getElementsByClassName('product')[0].innerHTML = tr;
 }
 
-function productList2(){
-	// if(localStorage.getItem('donhang')===null){
-var d = new Date();
-    var listDH = [
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-        {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
-    ];
-    localStorage.setItem('donhang',JSON.stringify(listDH));
+function formatNumber(num) {
+    // Chuyển số thành chuỗi
+    let str = num.toString();
+    // Thêm ba số 0 vào cuối chuỗi
+    str = str + "000";
+    // Đảo ngược chuỗi
+    str = str.split("").reverse().join("");
+    // Thêm dấu chấm vào mỗi ba ký tự
+    let result = "";
+    for (let i = 0; i < str.length; i++) {
+      result += str[i];
+      if ((i + 1) % 3 === 0 && i < str.length - 1) {
+        result += ".";
+      }
     }
+    // Đảo ngược lại chuỗi kết quả và thêm "Vnd" vào cuối
+    result = result.split("").reverse().join("") + " Vnd";
+    return result;
+  }
+
+// function productList2(){
+// 	// if(localStorage.getItem('donhang')===null){
+// var d = new Date();
+//     var listDH = [
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//         {madon:d, khach:'Bánh Trung Thu Tiramisu Phô Mai', sanpham: "tyu", tongtien:"135.000", ngaygio: d.toLocaleString()},
+//     ];
+//     localStorage.setItem('donhang',JSON.stringify(listDH));
+//     }
 // }
 
 //Tìm kiếm
@@ -368,12 +394,46 @@ function getValueOfTypeInTable_SanPham2(vl, loai) {
 }
 
 //================================Quản Lý Người Dùng======================================
+function getUserData() {
+    return JSON.parse(window.localStorage.getItem('userData'));
+}
+
+// function setUserData(l) {
+//     window.localStorage.setItem('userData', JSON.stringify(l));
+// }
+// var c = [];
+// c = getUserData();
+// console.log(c);
+function addTableKhachHang() {
+    var listUser = getUserData();
+
+    var tr = '';
+    for(var i = 0; i < listUser.length; i++) {
+        tr += `<tr>
+                <td style="width: 8%">` + (i+1) + `</td>
+                <td style="width: 38%">` + listUser[i].email + `</td>
+                <td style="width: 25%">` + listUser[i].username + `</td>
+                <td style="width: 20%">` + listUser[i].password + `</td>
+                <td>
+                    <div class="tooltip">
+                        <button class="edit" onClick="editProduct1(`+i+`)"><i class="fa fa-check"></i></button>
+                        <span class="tooltiptext">Sửa</span>
+                    </div>
+                    <div class="tooltip">
+                        <button class="delete" onClick="deleteProduct1(`+i+`)"><i class="fa fa-times"></i></i></button>
+                        <span class="tooltiptext">Xóa</span>
+                    </div>
+                </td>
+            </tr>`;
+    }
+    document.getElementsByClassName('NguoiDung')[0].getElementsByClassName('product')[0].innerHTML = tr;
+}
 
 //Tìm kiếm
 function filterTable4() {
     const sanPhamElement = document.querySelector('.NguoiDung');
     const kieuTim = sanPhamElement.querySelector('[name="kieuTimSanPham"]').value;
-    const vitriKieuTim = {'ten':1, 'email':2, 'tk':3};
+    const vitriKieuTim = {'email':2, 'tk':3};
 
     const input = sanPhamElement.querySelector(".myInput");
     const filter = input.value.toUpperCase();
@@ -402,13 +462,13 @@ function getValueOfTypeInTable_SanPham4(vl, loai) {
     var td = vl.getElementsByTagName('td');
     switch(loai) {
         case 'stt' : return Number(td[0].innerHTML);
-        case 'hoten' : return td[1].innerHTML.toLowerCase();
-        case 'email' : return td[2].innerHTML.toLowerCase();
-        case 'tk' : return td[3].innerHTML.toLowerCase();
-        case 'mk' : return td[4].innerHTML.toLowerCase();
+        case 'email' : return td[1].innerHTML.toLowerCase();
+        case 'tk' : return td[2].innerHTML.toLowerCase();
+        case 'mk' : return td[3].innerHTML.toLowerCase();
     }
     return false;
 }
+
 // ================== Sort ====================
 // https://github.com/HoangTran0410/First_html_css_js/blob/master/sketch.js
 var decrease = true; // Sắp xếp giảm dần
