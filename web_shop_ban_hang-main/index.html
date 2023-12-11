@@ -27,16 +27,20 @@
 
                 <div id="menu">
                     <div class="item">
-                        <a href>Trang chủ</a>
+                        <!--------------<a href>Trang chủ</a>------>
+                        <input type="button" value="Trang chủ"/>
                     </div>
                     <div class="item">
-                        <a href="SanPham.html">Sản phẩm</a>
+                        <!---------<a href="" onclick="redirect();">Sản phẩm</a>---------->
+                        <input type="button" value="Sản phẩm" onclick="redirect();" />
                     </div>
                     <div class="item">
-                        <a href="#footer">Giới thiệu</a>
+                       <!-----------<a href="">Blog</a>---------------->
+                       <input type="button" value="Blog"/>
                     </div>
                     <div class="item">
-                        <a href>Liên hệ</a>
+                        <!----------<a href>Liên hệ</a>---------------->
+                        <input type="button" value="Liên hệ"/>
                     </div>
                 </div>
                 <div id="actions">
@@ -259,7 +263,7 @@
             </div>
 
             <div class="text">
-                <p>Vẫn biết rằng nhịp sống ngày càng hối hả, Trung Thu chẳng còn nét xưa nhưng Duckgu Mooncake mỗi năm một lần, muốn đem tới những hương vị truyền thống nhất, đậm chất nhất đến với mọi nhà. Ăn bánh Bách Lạc và thưởng thức Trung Thu năm nay thật đúng nghĩa nhé các đồng tâm.</p>
+                <p>Vẫn biết rằng nhịp sống ngày càng hối hả, Trung Thu chẳng còn nét xưa nhưng <strong>Duckgu Mooncake</strong> mỗi năm một lần, muốn đem tới những hương vị truyền thống nhất, đậm chất nhất đến với mọi nhà. Ăn bánh Bách Lạc và thưởng thức Trung Thu năm nay thật đúng nghĩa nhé các đồng tâm.</p>
             </div>
 
             <div class="img">
@@ -418,7 +422,11 @@
         </div>
         <script src="index.js"></script>
         <!-- <script src="script.js"></script> -->
-
+        <script type="text/javascript">
+            function redirect(){
+            window.location="http://127.0.0.1:5500/Marketing--project-/web_shop_ban_hang-main/web_shop_ban_hang-main/SanPham.html";
+        }
+        </script>
 
     </body>
 

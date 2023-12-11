@@ -63,6 +63,16 @@
     text-decoration: none;
 }
 
+#menu .item input {
+    background-color: rgb(252, 252, 252); /* Màu nền */
+    font-weight: bolder;
+    font-size: 100%;
+    color: #000000; /* Màu chữ */
+    padding: 10px 20px; /* Kích thước nút */
+    border: none; /* Không có đường viền */
+    border-radius: 5px; /* Góc bo tròn */
+    cursor: pointer; /* Con trỏ tay khi rê chuột vào nút */
+}
 
 #actions {
     display: flex;
@@ -466,4 +476,34 @@
     height: 38px;
     margin-top: 29px;
     color: #fff;
+}
+
+.text {
+    background-color: #fff; /* Màu nền cho phần văn bản */
+    padding: 20px; /* Khoảng cách giữa nội dung và viền */
+    border-radius: 5px; /* Góc bo tròn cho khối văn bản */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khối văn bản */
+    margin-bottom: 20px; /* Khoảng cách giữa các phần */
+}
+
+.text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333; /* Màu chữ đen */
+}
+
+.img {
+    border-radius: 5px; /* Góc bo tròn cho khối hình ảnh */
+    overflow: hidden; /* Ẩn phần ngoài khung hình ảnh */
+    margin-bottom: 20px; /* Khoảng cách giữa các phần */
+}
+
+.img img {
+    width: 98%; /* Đảm bảo hình ảnh lấp đầy khối chứa */
+    height: auto; /* Tự động tính chiều cao dựa trên tỷ lệ khung hình */
+    transition: transform 0.3s ease; /* Hiệu ứng khi di chuột qua */
+}
+
+.img:hover img {
+    transform: scale(1.1); /* Hiệu ứng phóng to khi di chuột qua */
 }
