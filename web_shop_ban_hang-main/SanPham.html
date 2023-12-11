@@ -37,9 +37,7 @@
             </div>
         </div>
         <div id="actions">
-            <div class="item">
-                <i title="Tai Khoan" class="fa-regular fa-circle-user"></i>
-            </div>
+            
             <div class="item">
                 <div class="icon-cart">
                     <i title="Gio Hang" class="fa-solid fa-cart-shopping"></i>
@@ -47,12 +45,33 @@
                 </div>
                 
             </div>
+            <div class="item">
+                <i title="Tai Khoan" class="fa-regular fa-circle-user"></i>
+            </div>
         </div>
     </div>
 
     <div class="SanPham">
         <div class="content-left">
+            <h3>Thanh Tìm Kiếm:</h3>
+                        <div class="imput">
 
+                            <select name="kieuTimSanPham">
+                                <option value="id">Sap xep gia giam dan</option>
+                                <option value="ten">Sap xep gia tang dan</option>
+                            </select>
+
+                            <div class="imput-box">
+                                <input type="text" class="myInput" placeholder="Tìm bất cứ thứ gì...." onkeyup="filterTable1()">
+                                <label><i class="fa fa-search"></i></label>
+                            </div>
+
+                        </div>
+
+                        <h3>Thêm Sản Phẩm:</h3>
+                        <div class="button">
+                            <button onclick="openForm()"><i class="fa fa-edit"></i> Thêm</button>
+                        </div>
         </div>
 
         <div class="content-right">
@@ -60,9 +79,7 @@
                 
             </div>
             <ul class="listPage">
-                <!-- <li class="active">1</li>
-                <li>2</li>
-                <li>3</li> -->
+                
             </ul>
         </div>
 
