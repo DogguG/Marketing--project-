@@ -1,7 +1,7 @@
 window.onload=function()
 {
     addEventChangeTab();
-    //if (window.localStorage.getItem('admin')) {
+    if (window.localStorage.getItem('admin')) {
         productList1();
         // localStorage.clear();
         // productList2();
@@ -9,9 +9,9 @@ window.onload=function()
         showProductList2();
         addTableKhachHang()
         openTab('Quản Lý Sản Phẩm');
-    // } else {
-    //     document.body.innerHTML = `<h1 style="color:red; with:100%; text-align:center; margin: 50px;"> Truy cập bị từ chối.. </h1>`;
-    // }
+    } else {
+        document.body.innerHTML = `<h1 style="color:red; with:100%; text-align:center; margin: 50px;"> Truy cập bị từ chối.. </h1>`;
+    }
 }
 
 function logOutAdmin() {
