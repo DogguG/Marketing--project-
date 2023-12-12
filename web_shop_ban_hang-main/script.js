@@ -50,10 +50,22 @@ closeCart.addEventListener("click", () => {
 });
 
 checkOut.addEventListener("click", () => {
-  alert("Bạn có muốn thanh toán?");
-  listCartHTML.innerHTML = "";
+  if(window.confirm("Bạn có muốn thanh toán?")){
+    showSuccess("Thanh toán thành công!!!!");
+    listCartHTML.innerHTML = "";
   iconCartSpan.innerHTML = "0";
   body.classList.remove("showCart");
+  }
+
+  function showSuccess(Success) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: Success,
+    });
+}
+  // alert("");
+  
   // listCartHTML.style.display = "none";
 })
 // function addDataToHTML() {
